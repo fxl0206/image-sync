@@ -7,14 +7,15 @@ import re
 
 helpInfo = 'syncer.py -s registry1.xxx.xx -t registry2.xxx.xx:6060'
 def parseUrl(uri):
-    matchObj = re.match( r'(http[s]://)(.*)', uri, re.M|re.I)
+    matchObj = re.match( r'(https?://)(.*)', uri, re.M|re.I)
     if matchObj:
       print matchObj.group(1),'----',matchObj.group(2)
-      sys.exit()
+      return matchObj.group(1),matchObj.group(2)
     else:
       print uri
       sys.exit()
 def main(argv):
+  sProtocol=''
   source = ''
   target = ''
   try:
@@ -27,8 +28,8 @@ def main(argv):
        print(helpInfo)
        sys.exit()
     elif opt in ("-s", "--source"):
-       parseUrl(arg)
-       source = arg
+       (sProtocol,source) = parseUrl(arg)
+       #source = arg
     elif opt in ("-t", "--target"):
        target = arg
   print source,target
