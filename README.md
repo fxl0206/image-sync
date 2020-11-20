@@ -20,6 +20,8 @@ python syncer.py -s https://source.registry.xxx -t target.registry.xxxx -m sk
 
 ### docker steps
 
+you must set /etc/containers/registries.conf [registries.insecure] 
+
 ```shell
 docker run --rm -it --net host cfxl/image-syncer
 python syncer.py -s https://source.registry.xxx -t target.registry.xxxx -m sk
