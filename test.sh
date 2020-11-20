@@ -1,1 +1,1 @@
-python syncer.py -s https://192.168.1.6 -t registry2.xxx.xx:6060
+python syncer.py -s https://doc.hubx.site -t registry.hubx.site
