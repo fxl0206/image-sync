@@ -21,10 +21,11 @@ def parseOpts(argv):
   target = ''
   model = ''
   try:
-    opts, _ = getopt.getopt(argv,"hs:t:",["source=","target="])
+    opts, _ = getopt.getopt(argv,"hs:t:m:",["source=","target=","model="])
   except getopt.GetoptError:
     print(helpInfo)
     sys.exit(2)
+  print(opts)
   for opt, arg in opts:
     if opt == '-h':
        print(helpInfo)
@@ -35,7 +36,7 @@ def parseOpts(argv):
        target = arg
     elif opt in ("-m", "--model"):
        model= arg
-  print (source,target)
+  print (source,target,model)
   return sProtocol,source,target,model
 
 def main(argv):
